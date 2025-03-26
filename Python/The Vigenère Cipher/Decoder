@@ -25,7 +25,6 @@ def cracker(message, keyword):
     
     # Cipher decoder
     for letter in message:
-        letter = letter.lower()
         if letter in symbols != False:
             decoded += letter
         else: # Shifts the index of the current message letter by the index of the keyphrase letter then adds the letter at that shifted index to encoded message.
