@@ -1,0 +1,38 @@
+#### Vigenere Cipher Decoder
+#### Codecademy project
+#### Takes a message and a keyword and uses it to decode the message using a Vigenere Cipher.
+
+alph = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+symbols = " !.?,"
+decoded = []
+
+def cracker(message, keyword):
+    
+    keyphrase = ""
+    decoded = ""
+    index = 0
+    index2 = 0
+    
+    # Keyphrase generator
+    for letter in message:
+        if index >= len(keyword):
+            index = 0
+        if letter in symbols != False:
+            keyphrase += letter
+        else:
+            keyphrase += keyword[index]
+            index += 1
+    
+    # Cipher decoder
+    for letter in message:
+        letter = letter.lower()
+        if letter in symbols != False:
+            decoded += letter
+        else: # Shifts the index of the current message letter by the index of the keyphrase letter then adds the letter at that shifted index to encoded message.
+            pos1 = alph.find(message[index2].lower())
+            pos2 = alph.find(keyphrase[index2].lower())
+            pos3 = pos1 + pos2
+            decoded += alph[pos3]
+        index2 += 1
+    
+    return keyphrase, decoded
