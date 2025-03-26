@@ -1,4 +1,4 @@
-#### Vigenere Cipher Decoder
+#### Vigenere Cipher Decrypter
 #### Codecademy project
 #### Takes a message and a keyword and uses it to decode the message using a Vigenere Cipher.
 
