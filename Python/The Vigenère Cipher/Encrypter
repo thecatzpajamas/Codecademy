@@ -1,0 +1,37 @@
+#### Cipher Encrypter
+#### Codecademy Project
+#### Takes a message and a keyword and encrypts it using the Vigenere Cipher.
+
+alph = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+symbols = " !.?,"
+decoded = []
+
+def cracker(message, keyword):
+    
+    keyphrase = ""
+    encoded = ""
+    index = 0
+    index2 = 0
+    
+    # Keyphrase generator
+    for letter in message:
+        if index >= len(keyword):
+            index = 0
+        if letter in symbols != False:
+            keyphrase += letter
+        else:
+            keyphrase += keyword[index]
+            index += 1
+    
+    # Cipher encoder
+    for letter in message:
+        if letter in symbols != False:
+            encoded += letter
+        else:
+            pos1 = alph.find(message[index2].lower())
+            pos2 = alph.find(keyphrase[index2].lower())
+            pos3 = pos1 - pos2
+            encoded += alph[pos3]
+        index2 += 1
+    
+    return keyphrase, encoded
