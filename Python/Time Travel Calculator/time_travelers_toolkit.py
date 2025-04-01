@@ -16,7 +16,7 @@ rand_dest = choice(dests)
 
 # Calculate cost
 cost_multiplier = dt.datetime.now().year - Decimal(rand_time)
-final_cost = abs(Decimal(cost * cost_multiplier))
+final_cost = abs(Decimal(cost * cost_multiplier)).quantize(Decimal('0.00'))
 
 # Use of custom import 
 custom_module.generate_time_travel_message(rand_time,rand_dest,final_cost)
